@@ -1,12 +1,24 @@
-import React from 'react'
 import logo from '../assets/react.svg'
+import { useState } from 'react'
 
 const SimpleForm = () => {
+  // crear estados para el formulario
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const sudmittedData = JSON.stringify({
+      email,
+      password
+    })
+    console.log(sudmittedData)
+  }
+
   return (
     <div className='login'>
       <div className='login-container'>
         <img src={logo} alt='logo' />
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* Paso 3: Guardo cada cambio del input en su estado */}
           <label htmlFor='email'>Email</label>
           <input
@@ -14,7 +26,7 @@ const SimpleForm = () => {
             name='email'
             placeholder='correo@mail.com'
             id='email'
-            onChange={() => {}}
+            onChange={(event) => setEmail(event.target.value)}
           />
 
           <label htmlFor='password'>Password</label>
@@ -23,7 +35,7 @@ const SimpleForm = () => {
             name='password'
             placeholder='******'
             id='password'
-            onChange={() => {}}
+            onChange={(event) => setPassword(event.target.value)}
           />
 
           <button type='submit'>
