@@ -7,11 +7,11 @@ const SimpleForm = () => {
   const [password, setPassword] = useState('')
   const handleSubmit = (event) => {
     event.preventDefault()
-    const sudmittedData = JSON.stringify({
+    const submittedData = JSON.stringify({
       email,
       password
     })
-    console.log(sudmittedData)
+    console.log(submittedData)
   }
 
   return (
